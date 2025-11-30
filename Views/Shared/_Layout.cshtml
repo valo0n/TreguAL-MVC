@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TREGUAL-MVC</title>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="header-container">
+            <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">TREGUAL-MVC</a>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="header-icons">
+                <i class="icon-search">🔍</i> 
+                <i class="icon-cart">🛒</i>
+            </div>
+        </div>
+    </header>
+    
+    <main role="main">
+        @RenderBody()
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; @DateTime.Now.Year - TREGUAL-MVC</p>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
