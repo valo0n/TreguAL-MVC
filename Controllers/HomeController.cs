@@ -4,7 +4,7 @@ using TreguAL_MVC.Models;
 
 namespace TreguAL_MVC.Controllers;
 
-public class HomeController : Controller
+public class HomeController : Controller  
 {
     public IActionResult Index()
     {
