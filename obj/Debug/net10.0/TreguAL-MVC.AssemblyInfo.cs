@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TreguAL-MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64ac7198f2cdc982860c82a0d6cf4fe8a635967e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e305f487911b58eeb32ab425f7ac51b1559b5a24")]
 [assembly: System.Reflection.AssemblyProductAttribute("TreguAL-MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TreguAL-MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

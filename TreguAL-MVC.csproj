@@ -6,5 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>TreguAL_MVC</RootNamespace>
   </PropertyGroup>
-
+  <Target Name="Tailwind" BeforeTargets="Build">
+    <Exec Command="npx @tailwindcss/cli -i ./wwwroot/css/site.css -o ./wwwroot/css/tailwind.css --minify" />
+  </Target>
 </Project>
