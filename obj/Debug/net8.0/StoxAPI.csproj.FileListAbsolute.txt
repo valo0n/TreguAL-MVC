@@ -598,3 +598,15 @@ C:\Users\anes\Desktop\Stox\stox\server\obj\Debug\net8.0\refint\StoxAPI.dll
 C:\Users\anes\Desktop\Stox\stox\server\obj\Debug\net8.0\StoxAPI.pdb
 C:\Users\anes\Desktop\Stox\stox\server\obj\Debug\net8.0\StoxAPI.genruntimeconfig.cache
 C:\Users\anes\Desktop\Stox\stox\server\obj\Debug\net8.0\ref\StoxAPI.dll
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.csproj.AssemblyReference.cache
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.AssemblyInfoInputs.cache
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.AssemblyInfo.cs
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.csproj.CoreCompileInputs.cache
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.sourcelink.json
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.dll
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\refint\StoxAPI.dll
+C:\Users\Valon\Desktop\Server\obj\Debug\net8.0\StoxAPI.pdb
