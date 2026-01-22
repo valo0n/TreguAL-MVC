@@ -1,0 +1,161 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f3f4f6;
+    color: #112D4E;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* LAYOUT */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-top: 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: #112D4E;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background: #f9fafb;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid #112D4E;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #112D4E;
+}
+
+.btn-outline:hover {
+    background: #112D4E;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.hero-highlight {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f59e0b;
+}
+
+.hero-text h6 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.hero-image img {
+    max-width: 100%;
+}
+
+/* FEATURES */
+.features {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.features h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.feature {
+    max-width: 250px;
+}
+
+.feature img {
+    margin-bottom: 10px;
+}
+
+/* INFO */
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 80px auto;
+    max-width: 1100px;
+}
+
+.info-image img {
+    width: 100%;
+}
+
+.info-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* FOOTER */
+.footer {
+    background: #112D4E;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer img {
+    height: 80px;
+    margin-bottom: 10px;
+}
