@@ -1,0 +1,111 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-0 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="flex flex-col items-center w-full mt-6 md:mt-10 space-y-4">
+
+            <div class="flex flex-col w-full max-w-4xl space-y-4">
+
+                <!-- SORT + FILTER -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+                    <select id="sortSelect"
+                            class="border rounded-md px-4 py-2 w-full md:w-auto">
+                        <option value="date-desc">Sort by Date (Newest)</option>
+                        <option value="date-asc">Sort by Date (Oldest)</option>
+                        <option value="amount-desc">Sort by Amount (High → Low)</option>
+                        <option value="amount-asc">Sort by Amount (Low → High)</option>
+                    </select>
+
+                    <div class="flex flex-wrap gap-2 w-full md:w-auto justify-center md:justify-end">
+                        <button data-filter="daily" class="filter-btn">Daily</button>
+                        <button data-filter="weekly" class="filter-btn">Weekly</button>
+                        <button data-filter="monthly" class="filter-btn">Monthly</button>
+                        <button data-filter="yearly" class="filter-btn">Yearly</button>
+                    </div>
+                </div>
+
+                <!-- DATE RANGE -->
+                <div class="w-full flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="w-full md:w-1/2 flex gap-2">
+                        <input type="date" id="startDate"
+                               class="border px-4 py-2 w-full rounded-md" />
+                        <input type="date" id="endDate"
+                               class="border px-4 py-2 w-full rounded-md" />
+                    </div>
+
+                    <button id="clearDateBtn"
+                            class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md hidden">
+                        Clear Date Range
+                    </button>
+                </div>
+            </div>
+
+            <!-- COMPARISON -->
+            <div id="comparisonBox"
+                 class="w-full max-w-4xl bg-gray-50 rounded-lg p-4 shadow-sm hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div>
+                        <p class="text-sm text-gray-500">Current Period</p>
+                        <p id="currentAmount" class="text-xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Previous Period</p>
+                        <p id="previousAmount" class="text-xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Change</p>
+                        <p id="percentChange" class="text-xl font-bold"></p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="incomeTitle" class="text-xl md:text-2xl font-semibold">
+                Income
+            </h2>
+
+            <!-- LOADING -->
+            <div id="loadingBox"
+                 class="w-full max-w-3xl text-center py-8 hidden">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0d274b] mx-auto"></div>
+                <p class="mt-4 text-gray-600">Loading income data...</p>
+            </div>
+
+            <!-- ERROR -->
+            <div id="errorBox"
+                 class="w-full max-w-3xl bg-red-100 border border-red-400
+                        text-red-700 px-4 py-3 rounded hidden"></div>
+
+            <!-- TABLE -->
+            <div class="w-full max-w-4xl overflow-x-auto">
+                <table class="w-full border-collapse shadow-md">
+                    <thead>
+                        <tr class="bg-[#0d274b] text-white text-left">
+                            <th id="dateHeader" class="py-3 px-4">Date</th>
+                            <th class="py-3 px-4 text-right">Income</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incomeTable"></tbody>
+                </table>
+            </div>
+
+            <!-- PAGINATION -->
+            <div id="pagination"
+                 class="flex justify-center items-center space-x-4 mt-3 hidden">
+                <button id="prevBtn" class="px-3 py-2 rounded">Previous</button>
+                <p id="pageInfo" class="text-sm"></p>
+                <button id="nextBtn" class="px-3 py-2 rounded">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/income.js"></script>
