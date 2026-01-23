@@ -1,0 +1,91 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-8 flex flex-col relative">
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="p-10 max-w-lg mx-auto mt-10">
+            <h1 class="text-2xl font-semibold mb-6 text-center underline">Add Product</h1>
+
+            <button type="button"
+                    onclick="goBack()"
+                    class="text-sm font-medium text-gray-800 hover:text-amber-500 mb-5 cursor-pointer">
+                &lt;&lt; Back
+            </button>
+
+            <form id="addProductForm" class="space-y-4">
+                <input type="text"
+                       name="productName"
+                       placeholder="Product Name"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <input type="text"
+                       name="description"
+                       placeholder="Description"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <!-- ✅ Custom CreatableSelect: Searchable dropdown + create new on submit -->
+                <div class="relative">
+                    <input type="text"
+                           id="categoryInput"
+                           placeholder="Start typing or select a category"
+                           autocomplete="off"
+                           class="border p-2 w-full rounded-md" />
+
+                    <!-- Dropdown me filter (populated nga JS) -->
+                    <div id="categoryDropdown"
+                         class="absolute left-0 right-0 mt-1 bg-white border rounded-md shadow-md max-h-56 overflow-auto hidden z-50">
+                        <!-- Items injected dynamically -->
+                    </div>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        Tip: Shkruaj një kategori të re dhe shtype “Add Product” për me e kriju automatikisht.
+                    </p>
+                </div>
+
+                <input type="number"
+                       name="stockQuantity"
+                       placeholder="Stock Quantity"
+                       min="0"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <input type="number"
+                       step="0.01"
+                       name="price"
+                       placeholder="Price"
+                       min="0"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <button type="submit"
+                        class="bg-[#112D4E] text-white px-6 py-2 rounded-md hover:bg-[#0b213f] w-full cursor-pointer">
+                    Add Product
+                </button>
+            </form>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal"
+             style="display: none;"
+             class="fixed inset-0 flex justify-center items-center z-50 md:ml-65 bg-black bg-opacity-50">
+            <div class="bg-white p-6 rounded-lg shadow-md w-96 text-center border border-[#112D4E]">
+                <h2 class="text-xl font-semibold text-green-700">Product Added Successfully!</h2>
+                <p class="mt-2 text-gray-700">The product has been saved.</p>
+                <button onclick="goToProductList()"
+                        class="mt-4 px-6 py-2 bg-[#112D4E] text-white rounded hover:bg-[#0b213f] cursor-pointer">
+                    Go to Product List
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/add-product.js"></script>

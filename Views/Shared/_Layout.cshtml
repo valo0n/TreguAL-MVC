@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - STOX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind (BUILD FINAL) -->
+<link rel="stylesheet" href="/css/tailwind.css" />
+
+    <!-- Optional: custom overrides -->
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-outfit">
+
+    @RenderBody()
+
+    <!-- Global JS (nëse ke) -->
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

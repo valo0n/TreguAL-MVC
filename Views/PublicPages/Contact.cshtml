@@ -1,0 +1,102 @@
+@{
+    Layout = "_Layout";
+}
+<div class="flex flex-col min-h-screen text-[#112D4E]">
+
+    <!-- NAVBAR -->
+    <div class="mx-4 md:mx-20">
+        <nav class="bg-grey-50 flex items-center justify-between px-4 py-2 mt-5">
+            <div class="flex items-center">
+                <img src="~/images/stox-logo.png" alt="stoxLogo" class="h-10 w-auto" />
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden md:flex items-center space-x-7">
+                <a href="/PublicPages/Landingpage" class="text-gray-800">Home</a>
+                <a href="/PublicPages/Contact" class="text-gray-800">Contact</a>
+                <a href="/AuthPages/SignUpForm"
+                   class="bg-[#112D4E] text-white px-4 py-2 rounded-lg hover:bg-gray-50 hover:text-blue-500 hover:border hover:border-blue-500">
+                    Sign Up
+                </a>
+                <a href="/AuthPages/Login"
+                   class="bg-white text-[#112D4E] px-4 py-2 border border-[#112D4E] rounded-lg hover:bg-[#112D4E] hover:text-gray-50">
+                    Login
+                </a>
+            </div>
+
+            <!-- Mobile toggle -->
+            <div class="md:hidden">
+                <button onclick="toggleMenu()" class="text-2xl">☰</button>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden flex-col md:hidden items-center space-y-2 pb-4">
+            <a href="/PublicPages/Landingpage" class="text-gray-800">Home</a>
+            <a href="/PublicPages/Contact" class="text-gray-800">Contact</a>
+            <a href="/AuthPages/SignUpForm"
+               class="bg-[#112D4E] text-white px-4 py-2 rounded-lg">
+                Sign Up
+            </a>
+            <a href="/AuthPages/Login"
+               class="bg-white text-[#112D4E] px-4 py-2 border border-[#112D4E] rounded-lg">
+                Login
+            </a>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="flex flex-col md:flex-row items-center justify-start md:justify-center gap-12 px-6 py-12 flex-1">
+
+        <!-- Illustration -->
+        <div class="w-full md:w-1/2 flex items-center justify-center">
+            <div class="border-[10px] border-[#0d274b] rounded-xl p-2 bg-white hidden md:block">
+                <img src="~/images/illustration.png"
+                     alt="Illustration"
+                     class="w-full h-auto rounded-lg" />
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="w-full md:w-1/2 max-w-md">
+            <h1 class="text-3xl font-semibold text-[#112D4E] mb-6">Contact Us</h1>
+
+            <form id="contactForm" class="space-y-6">
+                <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                    <legend class="text-sm text-gray-600 px-1">Email</legend>
+                    <input type="email" name="email"
+                           placeholder="business@domain.com"
+                           class="w-full border-none outline-none text-gray-800"
+                           required />
+                </fieldset>
+
+                <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                    <legend class="text-sm text-gray-600 px-1">Message</legend>
+                    <textarea name="message" rows="4"
+                              placeholder="Your message here..."
+                              class="w-full border-none outline-none resize-none text-gray-800"
+                              required></textarea>
+                </fieldset>
+
+                <button id="submitBtn" type="submit"
+                        class="w-full bg-[#112D4E] text-white font-medium py-2 rounded-md hover:bg-[#0e2442] transition duration-300">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-[#112D4E] text-white py-6 mt-auto">
+        <footer class="flex flex-col items-center justify-center">
+            <img src="~/images/stox-logo.png"
+                 alt="stoxLogofoot"
+                 class="h-20 w-auto mb-2 mt-10" />
+            <p class="text-sm mt-5">
+                &copy; 2025 STOX — All rights reserved.
+            </p>
+        </footer>
+    </div>
+</div>
+
+<script src="~/js/components/contact.js"></script>

@@ -1,0 +1,72 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-8 flex flex-col relative">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="p-10 max-w-lg mx-auto mt-10">
+            <h1 class="text-2xl font-semibold mb-6 text-center underline">
+                Add Customer
+            </h1>
+
+            <button type="button"
+                    onclick="goBack()"
+                    class="text-sm font-medium text-gray-800 hover:text-amber-500 transition-colors bg-transparent border-none outline-none cursor-pointer mb-5">
+                &lt;&lt; Back
+            </button>
+
+            <form id="addCustomerForm" class="space-y-4">
+                <input type="text" name="full_Name"
+                       placeholder="Full Name"
+                       class="border p-2 w-full"
+                       required />
+
+                <input type="email" name="email"
+                       placeholder="Email"
+                       class="border p-2 w-full"
+                       required />
+
+                <input type="tel" name="phone_Number"
+                       placeholder="Phone Number"
+                       class="border p-2 w-full"
+                       required />
+
+                <input type="text" name="address"
+                       placeholder="Address"
+                       class="border p-2 w-full"
+                       required />
+
+                <button type="submit"
+                        class="bg-[#112D4E] text-white px-6 py-2 rounded-md hover:bg-[#0b213f] w-full cursor-pointer">
+                    Add Customer
+                </button>
+            </form>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal"
+             class="absolute inset-0 flex justify-center items-center z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-md w-96 text-center border border-[#112D4E]">
+                <h2 class="text-xl font-semibold text-green-700">
+                    Customer Added Successfully!
+                </h2>
+                <p class="mt-2 text-gray-700">
+                    The customer has been saved.
+                </p>
+                <button onclick="goToCustomerList()"
+                        class="mt-4 px-6 py-2 bg-[#112D4E] text-white rounded hover:bg-[#0b213f]">
+                    Go to Customer List
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/js/components/add-customer.js"></script>
