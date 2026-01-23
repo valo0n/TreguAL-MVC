@@ -1,0 +1,50 @@
+@{
+    Layout = "_Layout";
+}
+<div id="logoutModal"
+     class="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50 hidden">
+
+    <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl w-[90%] max-w-md
+                border-[3px] border-[#112D4E] text-[#112D4E] relative">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4 border-b-2 border-[#112D4E] pb-2">
+            <h2 class="text-2xl font-bold">Log out</h2>
+            <button onclick="closeLogoutModal()"
+                    class="text-2xl font-bold hover:text-red-600">
+                X
+            </button>
+        </div>
+
+        <!-- Icon -->
+        <div class="flex justify-center mb-6">
+            <!-- Lucide ArrowRight replaced with SVG (no React dependency) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 class="text-orange-500">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </div>
+
+        <!-- Message -->
+        <p class="text-center text-lg font-medium mb-6">
+            Are you sure you want to log out?
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex justify-center gap-4">
+            <button onclick="confirmLogout()"
+                    class="bg-orange-500 text-white font-semibold px-6 py-2 rounded-xl hover:bg-orange-600 transition">
+                Yes, I’m sure
+            </button>
+
+            <button onclick="closeLogoutModal()"
+                    class="px-6 py-2 rounded-xl border-2 border-[#112D4E]
+                           text-[#112D4E] font-semibold hover:bg-gray-100 transition">
+                No, cancel
+            </button>
+        </div>
+    </div>
+</div>

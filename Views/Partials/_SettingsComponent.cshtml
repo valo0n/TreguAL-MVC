@@ -1,0 +1,220 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    <!-- ================= Change Details ================= -->
+    <div>
+        <h2 class="text-2xl font-semibold text-[#112D4E] mb-6 text-center">
+            Change Details
+        </h2>
+
+        <div class="space-y-6">
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">Address</legend>
+                <input id="address" type="text"
+                       placeholder="Enter your address"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">Phone Number</legend>
+                <input id="phoneNumber" type="text"
+                       placeholder="Enter your phone number"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">Transit Number</legend>
+                <input id="transitNumber" type="text"
+                       placeholder="Enter your transit number"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <div id="detailsMessage"
+                 class="hidden p-2 rounded-md text-white text-center text-sm font-medium">
+            </div>
+
+            <button id="saveDetailsBtn"
+                    type="button"
+                    class="w-full bg-[#00B100] text-white py-2 rounded-md hover:bg-green-700 transition">
+                Save
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= Change Password ================= -->
+    <div>
+        <h2 class="text-2xl font-semibold text-[#112D4E] mb-6 text-center">
+            Change Password
+        </h2>
+
+        <div class="space-y-6">
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">Current Password</legend>
+                <input id="currentPassword" type="password"
+                       placeholder="Enter Current Password"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">New Password</legend>
+                <input id="newPassword" type="password"
+                       placeholder="Enter New Password"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <fieldset class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                <legend class="text-sm text-gray-600 px-1">Confirm Password</legend>
+                <input id="confirmPassword" type="password"
+                       placeholder="Confirm New Password"
+                       class="w-full border-none outline-none text-gray-800" />
+            </fieldset>
+
+            <div id="passwordMessage"
+                 class="hidden p-2 rounded-md text-white text-center text-sm font-medium">
+            </div>
+
+            <button id="savePasswordBtn"
+                    type="button"
+                    class="w-full bg-[#00B100] text-white py-2 rounded-md hover:bg-green-700 transition">
+                Save
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= JavaScript ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("savePasswordBtn")
+        .addEventListener("click", savePassword);
+
+    document.getElementById("saveDetailsBtn")
+        .addEventListener("click", saveDetails);
+});
+
+/* ========== Shared Message Helper ========== */
+function showMessage(id, text, success) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.classList.remove("hidden", "bg-red-600", "bg-green-600");
+    el.classList.add(success ? "bg-green-600" : "bg-red-600");
+}
+
+/* ========== Save Details (Address + Phone + Transit) ========== */
+async function saveDetails() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        showMessage("detailsMessage", "Unauthorized. Please login again.", false);
+        return;
+    }
+
+    const address = document.getElementById("address");
+    const phone = document.getElementById("phoneNumber");
+    const transit = document.getElementById("transitNumber");
+    const btn = document.getElementById("saveDetailsBtn");
+
+    if (!address.value || !phone.value || !transit.value) {
+        showMessage("detailsMessage", "All fields are required.", false);
+        return;
+    }
+
+    try {
+        btn.disabled = true;
+        btn.textContent = "Saving...";
+
+        const res = await fetch("http://localhost:5104/api/Settings/update-details", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                Address: address.value,
+                PhoneNumber: phone.value,
+                TransitNumber: transit.value
+            })
+        });
+
+        const text = await res.text();
+        if (!res.ok) throw new Error(text);
+
+        showMessage("detailsMessage", "Details updated successfully.", true);
+
+        address.value = "";
+        phone.value = "";
+        transit.value = "";
+    }
+    catch (err) {
+        showMessage("detailsMessage", err.message || "Failed to update details.", false);
+    }
+    finally {
+        btn.disabled = false;
+        btn.textContent = "Save";
+    }
+}
+
+/* ========== Save Password ========== */
+async function savePassword() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        showMessage("passwordMessage", "Unauthorized. Please login again.", false);
+        return;
+    }
+
+    const current = document.getElementById("currentPassword");
+    const next = document.getElementById("newPassword");
+    const confirm = document.getElementById("confirmPassword");
+    const btn = document.getElementById("savePasswordBtn");
+
+    if (!current.value || !next.value || !confirm.value) {
+        showMessage("passwordMessage", "All fields are required.", false);
+        return;
+    }
+
+    if (next.value !== confirm.value) {
+        showMessage("passwordMessage", "Passwords do not match.", false);
+        return;
+    }
+
+    if (next.value.length < 8) {
+        showMessage("passwordMessage", "Password must be at least 8 characters.", false);
+        return;
+    }
+
+    try {
+        btn.disabled = true;
+        btn.textContent = "Saving...";
+
+        const res = await fetch("http://localhost:5104/api/Settings/update-password", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                CurrentPassword: current.value,
+                NewPassword: next.value
+            })
+        });
+
+        const text = await res.text();
+        if (!res.ok) throw new Error(text);
+
+        showMessage("passwordMessage", "Password updated successfully.", true);
+
+        current.value = "";
+        next.value = "";
+        confirm.value = "";
+    }
+    catch (err) {
+        showMessage("passwordMessage", err.message || "Failed to update password.", false);
+    }
+    finally {
+        btn.disabled = false;
+        btn.textContent = "Save";
+    }
+}
+</script>
