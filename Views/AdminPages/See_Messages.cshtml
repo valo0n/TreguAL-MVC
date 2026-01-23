@@ -1,0 +1,106 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarAdmin.cshtml")
+
+    <div class="flex-1 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="p-8 flex-1">
+
+            <!-- Search & Sort -->
+            <div class="flex flex-col md:flex-row justify-between items-center
+                        mb-6 gap-4 md:ml-10 md:mr-10">
+
+                <input id="searchInput"
+                       type="text"
+                       placeholder="Search"
+                       class="border px-4 py-2 rounded w-full md:w-35" />
+
+                <select id="sortSelect"
+                        class="border px-4 py-2 rounded">
+                    <option value="asc">Sort by ID (Ascending)</option>
+                    <option value="desc">Sort by ID (Descending)</option>
+                </select>
+            </div>
+
+            <!-- LOADING -->
+            <p id="loadingText">Loading messages...</p>
+
+            <!-- TABLE -->
+            <div id="tableWrapper"
+                 class="overflow-x-auto md:ml-10 md:mr-10 hidden">
+
+                <table class="min-w-full border-collapse border border-gray-300">
+                    <thead class="bg-[#112D4E] text-white">
+                        <tr>
+                            <th class="p-3">ID</th>
+                            <th class="p-3">Email</th>
+                            <th class="p-3">Message</th>
+                            <th class="p-3">Received Date</th>
+                            <th class="p-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messageTable"></tbody>
+                </table>
+            </div>
+
+            <p id="noDataText" class="hidden text-center mt-6">
+                No messages found.
+            </p>
+        </div>
+
+        <!-- PAGINATION -->
+        <div id="pagination"
+             class="flex justify-center items-center space-x-4 mt-6 mb-8 hidden">
+
+            <button id="prevBtn"
+                    class="px-3 py-2 rounded bg-[#112D4E] text-white">
+                Previous
+            </button>
+
+            <p id="pageInfo" class="text-sm"></p>
+
+            <button id="nextBtn"
+                    class="px-3 py-2 rounded bg-[#112D4E] text-white">
+                Next
+            </button>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footerSummary"
+             class="bg-[#112D4E] text-white p-2 rounded-md
+                    flex justify-center items-center text-lg font-semibold
+                    mt-8 md:ml-10 md:mr-10 lg:ml-15 lg:mr-15 md:mb-8 hidden">
+            <p id="totalMessages"></p>
+        </div>
+    </div>
+</div>
+
+<!-- CONFIRM DELETE MODAL -->
+<div id="confirmModal"
+     class="fixed inset-0 flex items-center justify-center z-50 hidden md:ml-65">
+    <div class="bg-white p-6 rounded-lg text-center space-y-4
+                w-96 shadow-lg border border-[#112D4E]">
+        <div class="text-red-600 text-4xl">!</div>
+        <h2 class="text-xl font-semibold">
+            Are you sure you want to delete this message?
+        </h2>
+        <div class="flex justify-center space-x-4 mt-4">
+            <button onclick="confirmDelete()"
+                    class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">
+                Yes, I'm sure
+            </button>
+            <button onclick="closeConfirm()"
+                    class="border border-gray-400 px-6 py-2 rounded hover:bg-gray-100">
+                No, cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/see-messages.js"></script>

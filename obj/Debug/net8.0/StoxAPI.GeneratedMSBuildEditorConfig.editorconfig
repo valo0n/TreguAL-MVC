@@ -26,6 +26,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AdminPages/See_Messages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xTZWVfTWVzc2FnZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AdminPages/See_Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xTZWVfVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/ForgotLink.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXEZvcmdvdExpbmsuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
