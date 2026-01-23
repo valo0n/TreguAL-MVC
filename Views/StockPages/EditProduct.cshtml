@@ -1,0 +1,75 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-8 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="p-10 max-w-lg mx-auto mt-10">
+            <h1 class="text-2xl font-semibold mb-6 text-center underline">
+                Edit Product
+            </h1>
+
+            <button type="button"
+                    onclick="goBack()"
+                    class="text-sm font-medium text-gray-800 hover:text-amber-500 mb-5 cursor-pointer">
+                &lt;&lt; Back
+            </button>
+
+            <form id="editProductForm" class="space-y-4">
+
+                <input type="text"
+                       id="product_Name"
+                       placeholder="Product Name"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <input type="text"
+                       id="description"
+                       placeholder="Description"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <!-- CATEGORY -->
+                <select id="categorySelect"
+                        class="border p-2 w-full rounded-md">
+                    <option value="">Select category</option>
+                </select>
+
+                <input type="number"
+                       id="stock_Quantity"
+                       placeholder="Stock Quantity"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <input type="number"
+                       step="0.01"
+                       id="price"
+                       placeholder="Price"
+                       class="border p-2 w-full rounded-md"
+                       required />
+
+                <button type="submit"
+                        class="bg-[#112D4E] text-white px-6 py-2 rounded-md
+                               hover:bg-[#0b213f] w-full cursor-pointer">
+                    Update Product
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup"
+     class="fixed top-6 left-1/2 transform -translate-x-1/2
+            bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg
+            z-50 hidden md:ml-30 transition-all duration-300">
+    Product updated successfully!
+</div>
+
+<script src="~/js/components/edit-product.js"></script>

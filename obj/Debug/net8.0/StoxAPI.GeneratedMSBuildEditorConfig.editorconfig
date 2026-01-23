@@ -78,8 +78,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xBZGRTYWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/anes/Desktop/Xhelali/TreguAL-MVC/Views/StockPages/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xFZGl0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/anes/Desktop/Xhelali/TreguAL-MVC/Views/StockPages/Income.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xJbmNvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/anes/Desktop/Xhelali/TreguAL-MVC/Views/StockPages/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/anes/Desktop/Xhelali/TreguAL-MVC/Views/StockPages/Purchase.cshtml]
