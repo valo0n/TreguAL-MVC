@@ -1,0 +1,87 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row overflow-hidden">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-0 flex flex-col relative">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="flex justify-center mt-10 2xl:mt-35 xl:mt-10">
+            <div class="max-w-xl w-full max-h-screen">
+
+                <div class="relative mb-5">
+                    <button type="button"
+                            onclick="goBack()"
+                            class="absolute left-0 text-sm font-medium text-gray-800 hover:text-amber-500 cursor-pointer">
+                        &lt;&lt; Back
+                    </button>
+                    <h2 class="text-2xl font-bold text-center text-[#112D4E]">
+                        Invoice
+                    </h2>
+                </div>
+
+                <!-- CUSTOMER -->
+                <label class="text-sm font-semibold">Customer</label>
+                <select id="customerSelect"
+                        class="border p-2 w-full rounded-md mb-3">
+                    <option value="">Select customer</option>
+                </select>
+
+                <!-- ITEMS HEADER -->
+                <div class="grid grid-cols-5 gap-2 font-semibold text-sm mb-2">
+                    <div class="col-span-2">Product</div>
+                    <div>Quantity</div>
+                    <div>Price</div>
+                    <div>Amount</div>
+                </div>
+
+                <!-- ITEMS -->
+                <div id="itemsContainer"
+                     class="max-h-80 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                </div>
+
+                <button onclick="addItem()"
+                        class="text-blue-600 font-semibold text-sm mt-2 mb-4">
+                    + Add Item
+                </button>
+
+                <div class="flex justify-between font-semibold text-lg mb-4">
+                    <span>Total:</span>
+                    <span id="totalAmount">0.00</span>
+                </div>
+
+                <div id="errorMessage"
+                     class="text-red-600 text-sm font-medium mb-4 text-center hidden"></div>
+
+                <button id="saveBtn"
+                        onclick="saveSale()"
+                        class="bg-[#112D4E] hover:bg-[#0b213f] text-white px-6 py-2 rounded-md w-full cursor-pointer">
+                    Save Invoice
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div id="successModal"
+     class="absolute inset-0 flex justify-center items-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-md w-96 text-center border border-[#112D4E]">
+        <h2 class="text-xl font-semibold text-green-700">
+            Invoice Saved!
+        </h2>
+        <p class="mt-2 text-gray-700">
+            The invoice has been recorded successfully.
+        </p>
+        <button onclick="goToSaleList()"
+                class="mt-4 px-6 py-2 bg-[#112D4E] text-white rounded hover:bg-[#0b213f]">
+            Go to Invoice List
+        </button>
+    </div>
+</div>
+
+<script src="~/js/components/add-sale.js"></script>

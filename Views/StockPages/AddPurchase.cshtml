@@ -1,0 +1,88 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row overflow-hidden relative">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-0 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="flex justify-center mt-10">
+            <div class="max-w-xl w-full">
+
+                <div class="relative mb-5">
+                    <button type="button"
+                            onclick="goBack()"
+                            class="absolute left-0 text-sm font-medium text-gray-800 hover:text-amber-500 cursor-pointer">
+                        &lt;&lt; Back
+                    </button>
+
+                    <h2 class="text-2xl font-bold text-center text-[#112D4E]">
+                        Purchase Invoice
+                    </h2>
+                </div>
+
+                <!-- Supplier -->
+                <label class="text-sm font-semibold">Supplier</label>
+                <input id="supplierInput"
+                       type="text"
+                       placeholder="Start typing supplier name"
+                       class="border p-2 w-full rounded-md mb-3" />
+
+                <!-- Items header -->
+                <div class="grid grid-cols-5 gap-2 font-semibold text-sm mb-2">
+                    <div class="col-span-2">Product</div>
+                    <div>Qty</div>
+                    <div>Price</div>
+                    <div>Amount</div>
+                </div>
+
+                <!-- Items list -->
+                <div id="itemsContainer"
+                     class="max-h-80 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                </div>
+
+                <button onclick="addItem()"
+                        class="text-blue-600 font-semibold text-sm mt-2 mb-4">
+                    + Add Item
+                </button>
+
+                <div class="flex justify-between font-semibold text-lg mb-4">
+                    <span>Total:</span>
+                    <span id="totalAmount">0.00</span>
+                </div>
+
+                <div id="errorMessage"
+                     class="hidden text-red-600 font-medium text-xs mb-2 text-center"></div>
+
+                <button onclick="savePurchase()"
+                        class="bg-[#112D4E] hover:bg-[#0b213f] text-white px-6 py-2 rounded-md w-full cursor-pointer">
+                    Save Invoice
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal"
+     class="absolute inset-0 flex justify-center items-center z-50 hidden md:ml-65">
+    <div class="bg-white p-6 rounded-lg shadow-md w-96 text-center border border-[#112D4E]">
+        <h2 class="text-xl font-semibold text-green-700">
+            Purchase Saved!
+        </h2>
+        <p class="mt-2 text-gray-700">
+            The purchase has been recorded.
+        </p>
+        <button onclick="goToPurchaseList()"
+                class="mt-4 px-6 py-2 bg-[#112D4E] text-white rounded hover:bg-[#0b213f]">
+            Go to Purchase List
+        </button>
+    </div>
+</div>
+
+<script src="~/js/components/add-purchase.js"></script>
