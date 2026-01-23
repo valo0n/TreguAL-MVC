@@ -1,0 +1,108 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex justify-center bg-white min-h-screen font-outfit px-4 md:px-10 xl:px-24">
+    <div class="flex flex-col xl:flex-row w-full max-w-[1440px]">
+
+        <!-- Left Image Panel -->
+        <div class="hidden xl:flex w-1/2 items-center justify-start px-8">
+            <div class="border-[10px] border-[#0d274b] rounded-xl p-2 bg-white">
+                <img src="~/images/illustration.png"
+                     alt="Illustration"
+                     class="w-full h-auto rounded-lg" />
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="w-full xl:w-1/2 max-w-[540px] p-10 bg-white
+                    flex flex-col justify-center items-center mx-auto">
+
+            <img src="~/images/stox-logo.png"
+                 alt="STOX Logo"
+                 class="w-[250px] h-[70px] object-contain mb-12 self-start" />
+
+            <!-- Header -->
+            <div class="flex items-center justify-between w-full max-w-[600px]
+                        mb-8 h-10 relative">
+                <button type="button"
+                        onclick="goBack()"
+                        class="text-sm font-medium text-gray-800 hover:text-amber-500
+                               transition-colors bg-transparent border-none outline-none
+                               cursor-pointer">
+                    &lt;&lt; Back
+                </button>
+
+                <h2 class="text-xl font-bold text-center absolute left-1/2
+                           transform -translate-x-1/2">
+                    Sign Up
+                </h2>
+
+                <p class="text-sm text-gray-600 whitespace-nowrap">
+                    2 Step 2
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="stepTwoForm"
+                  class="w-full max-w-[500px] flex flex-col items-stretch space-y-6">
+
+                <!-- Phone -->
+                <div class="space-y-1">
+                    <fieldset id="phoneField"
+                              class="border rounded-md px-3 pt-1 pb-2 border-gray-300">
+                        <legend class="text-sm text-gray-600 px-1">Phone number</legend>
+                        <input id="phone"
+                               placeholder="044111111"
+                               class="w-full border-none outline-none text-gray-800 text-sm" />
+                    </fieldset>
+                    <p id="phoneError" class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <!-- Transit -->
+                <div class="space-y-1">
+                    <fieldset id="transitField"
+                              class="border rounded-md px-3 pt-1 pb-2 border-gray-300">
+                        <legend class="text-sm text-gray-600 px-1">Transit number</legend>
+                        <input id="transit"
+                               placeholder="111111122222"
+                               class="w-full border-none outline-none text-gray-800 text-sm" />
+                    </fieldset>
+                    <p id="transitError" class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <!-- Password -->
+                <div class="space-y-1">
+                    <fieldset id="passwordField"
+                              class="border rounded-md px-3 pt-1 pb-2 border-gray-300">
+                        <legend class="text-sm text-gray-600 px-1">Password</legend>
+                        <input id="password" type="password"
+                               placeholder="********"
+                               class="w-full border-none outline-none text-gray-800 text-sm" />
+                    </fieldset>
+                    <p id="passwordError" class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="space-y-1">
+                    <fieldset id="confirmPasswordField"
+                              class="border rounded-md px-3 pt-1 pb-2 border-gray-300">
+                        <legend class="text-sm text-gray-600 px-1">Confirm password</legend>
+                        <input id="confirmPassword" type="password"
+                               placeholder="********"
+                               class="w-full border-none outline-none text-gray-800 text-sm" />
+                    </fieldset>
+                    <p id="confirmPasswordError" class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-[#0d274b] text-white font-semibold py-3
+                               rounded-md hover:bg-[#0b213f] transition duration-300">
+                    Create
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/step-two.js"></script>

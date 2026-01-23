@@ -1,0 +1,106 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex justify-center bg-white min-h-screen font-sans px-4 md:px-10 xl:px-24">
+    <div class="flex flex-col xl:flex-row w-full max-w-[1440px]">
+
+        <!-- Illustration -->
+        <div class="hidden xl:flex w-1/2 items-center justify-start px-8">
+            <div class="border-[10px] border-[#0d274b] rounded-xl p-2 bg-white">
+                <img src="~/images/illustration.png"
+                     alt="Illustration"
+                     class="w-full h-auto rounded-lg" />
+            </div>
+        </div>
+
+        <!-- Login Panel -->
+        <div class="w-full xl:w-1/2 max-w-[540px] p-10 bg-white
+                    flex flex-col justify-center items-center mx-auto">
+
+            <img src="~/images/stox-logo.png"
+                 alt="STOX Logo"
+                 class="w-[250px] h-[70px] object-contain mb-12 self-start" />
+
+            <!-- Header -->
+            <div class="flex items-center justify-between w-full max-w-[600px]
+                        mb-8 h-10 relative">
+
+                <button type="button"
+                        onclick="goBack()"
+                        class="text-sm font-medium text-gray-800 hover:text-amber-500
+                               transition-colors bg-transparent border-none outline-none
+                               font-outfit cursor-pointer">
+                    &lt;&lt; Back
+                </button>
+
+                <h2 class="text-xl font-bold text-center absolute left-1/2
+                           transform -translate-x-1/2 font-outfit leading-none">
+                    Login
+                </h2>
+            </div>
+
+            <!-- FORM -->
+            <form id="loginForm"
+                  class="w-full max-w-[500px] flex flex-col items-stretch space-y-6">
+
+                <!-- Email -->
+                <div class="space-y-1">
+                    <fieldset id="emailField"
+                              class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                        <legend class="text-sm text-gray-600 px-1">Email</legend>
+                        <input id="email"
+                               type="email"
+                               placeholder="you@example.com"
+                               class="w-full border-none outline-none text-gray-800
+                                      placeholder:text-gray-400 text-sm" />
+                    </fieldset>
+                    <p id="emailError"
+                       class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <!-- Password -->
+                <div class="space-y-1">
+                    <fieldset id="passwordField"
+                              class="border border-gray-300 rounded-md px-3 pt-1 pb-2">
+                        <legend class="text-sm text-gray-600 px-1">Password</legend>
+                        <input id="password"
+                               type="password"
+                               placeholder="Enter your password"
+                               class="w-full border-none outline-none text-gray-800
+                                      placeholder:text-gray-400 text-sm" />
+                    </fieldset>
+                    <p id="passwordError"
+                       class="text-red-500 text-xs pl-1 hidden"></p>
+                </div>
+
+                <!-- Forgot -->
+                <div class="w-full text-right -mt-2">
+                    <a href="/AuthPages/ForgotLink"
+                       class="text-sm text-amber-500 hover:underline font-medium">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                        class="w-full bg-[#0d274b] text-white font-semibold
+                               py-3 rounded-md hover:bg-[#0b213f]
+                               transition duration-300">
+                    Login
+                </button>
+            </form>
+
+            <!-- Signup -->
+            <p class="mt-5 text-sm text-center">
+                Don't have an account?
+                <a href="/AuthPages/SignUpForm"
+                   class="text-amber-500 font-medium hover:underline">
+                    Sign up
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/login.js"></script>
