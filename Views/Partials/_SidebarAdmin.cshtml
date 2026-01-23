@@ -1,0 +1,67 @@
+@{
+    Layout = "_Layout";
+}
+<!-- DESKTOP SIDEBAR -->
+<div class="bg-[#112D4E] w-65 h-screen rounded-tr-2xl rounded-br-2xl flex-col justify-between p-4 hidden md:flex">
+
+    <div>
+        <!-- Logo -->
+        <div class="mb-8 mt-5 flex justify-center">
+            <img src="~/images/stox-logo.png" alt="Logo" class="h-10" />
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-col gap-6 m-5">
+            <a href="/AdminPages/Dashboard" class="sidebar-link flex items-center gap-3 text-white">
+                <img src="~/images/chart.png" />
+                <h3>Overview</h3>
+            </a>
+
+            <a href="/AdminPages/See_Users" class="sidebar-link flex items-center gap-3 text-white">
+                <img src="~/images/user.png" />
+                <h3>Users</h3>
+            </a>
+
+            <a href="/AdminPages/See_Messages" class="sidebar-link flex items-center gap-3 text-white">
+                <img src="~/images/mail.png" />
+                <h3>See Messages</h3>
+            </a>
+
+            <a href="/UserPages/UserDashboard" class="sidebar-link flex items-center gap-3 text-white">
+                <img src="~/images/panel.png" />
+                <h3>User Dashboard</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col gap-6 m-5">
+        <a href="/UserPages/SettingsPage" class="sidebar-link flex items-center gap-3 text-white">
+            <img src="~/images/shape.png" />
+            <h3>Settings</h3>
+        </a>
+
+        <button onclick="openLogoutModal()" class="flex items-center gap-3 text-white cursor-pointer">
+            <img src="~/images/logout.png" />
+            <h3>Logout</h3>
+        </button>
+    </div>
+</div>
+
+<!-- MOBILE NAVBAR -->
+<div class="md:hidden flex items-center justify-between bg-[#112D4E] p-4">
+    <img src="~/images/stox-logo.png" alt="Logo" class="h-8" />
+    <button onclick="toggleMobileSidebar()" class="text-white text-3xl">&#9776;</button>
+</div>
+
+<!-- MOBILE MENU -->
+<div id="mobileSidebar" class="md:hidden bg-[#112D4E] flex-col gap-4 p-4 hidden">
+    <a href="/AdminPages/Dashboard" class="mobile-link text-white">Overview</a>
+    <a href="/AdminPages/See_Users" class="mobile-link text-white">Users</a>
+    <a href="/AdminPages/See_Messages" class="mobile-link text-white">See Messages</a>
+    <a href="/UserPages/UserDashboard" class="mobile-link text-white">User Dashboard</a>
+    <a href="/UserPages/SettingsPage" class="mobile-link text-white">Settings</a>
+    <button onclick="openLogoutModal()" class="text-left text-white">Logout</button>
+</div>
+
+@await Html.PartialAsync("~/Views/Partials/_LogoutModal.cshtml")
