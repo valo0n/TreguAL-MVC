@@ -1,0 +1,76 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex min-h-screen text-[#112D4E] flex-col md:flex-row">
+
+    <!-- Sidebar (Admin / User vendoset nga JS) -->
+    <div id="sidebarContainer" class="md:block"></div>
+
+    <!-- Main Content -->
+    <div class="flex-1">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="flex flex-col xl:flex-row items-center justify-center gap-12 px-6 py-12
+                    max-w-screen-xl mx-auto min-h-[calc(100vh-80px)]">
+
+            <!-- Illustration -->
+            <div class="w-full md:w-1/2 flex justify-center items-center">
+                <img src="~/images/landing1.png"
+                     alt="EOQ Illustration"
+                     class="block md:hidden xl:block w-full h-auto xl:w-[700px] object-contain" />
+            </div>
+
+            <!-- Contact Form -->
+            <div class="w-full md:w-1/2 max-w-md flex flex-col items-center">
+
+                <h1 class="text-3xl font-semibold mb-6 text-center underline">
+                    Contact Us
+                </h1>
+
+                <!-- User Info -->
+                <div id="userInfoBox"
+                     class="mb-4 text-center text-sm text-gray-600 hidden">
+                    <p>
+                        <strong>Business:</strong>
+                        <span id="businessName"></span>
+                    </p>
+                    <p>
+                        <strong>Number:</strong>
+                        <span id="businessNumber"></span>
+                    </p>
+                </div>
+
+                <form id="contactDashboardForm" class="space-y-6 w-full">
+
+                    <input type="email"
+                           id="emailInput"
+                           readonly
+                           class="w-full bg-gray-100 p-2 rounded-md outline-none text-gray-800" />
+
+                    <textarea id="messageInput"
+                              rows="4"
+                              placeholder="Your message here..."
+                              class="w-full p-2 rounded-md bg-gray-50 outline-none resize-none
+                                     text-gray-800 border border-gray-300"
+                              required></textarea>
+
+                    <button id="submitBtn"
+                            type="submit"
+                            class="w-full bg-[#112D4E] text-white font-medium py-2
+                                   rounded-md hover:bg-[#0e2442] transition duration-300">
+                        Submit
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/contact-dashboard.js"></script>
+<script src="~/js/components/sidebar-admin.js"></script>
+<script src="~/js/components/sidebar-user.js"></script>
+<script src="~/js/components/header.js"></script>
+<script src="~/js/components/logout-modal.js"></script>

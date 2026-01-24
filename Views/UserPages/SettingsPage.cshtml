@@ -1,0 +1,28 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    <!-- SIDEBAR (dinamike sipas role) -->
+    <div id="sidebarContainer" class="w-auto md:block w-64"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-1 p-4 md:p-0 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div>
+            <h1 class="text-3xl font-bold text-[#112D4E] mb-6 mt-5 lg:mt-15
+                       text-center underline">
+                Settings
+            </h1>
+
+            <div class="p-6 lg:mx-10 lg:mt-15">
+                @await Html.PartialAsync("~/Views/Partials/_SettingsComponent.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/settings-page.js"></script>

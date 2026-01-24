@@ -121,3 +121,23 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Valon/Desktop/Server/Views/UserPages/AddCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEFkZEN1c3RvbWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Valon/Desktop/Server/Views/UserPages/ContactDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXENvbnRhY3REYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Valon/Desktop/Server/Views/UserPages/Customer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Valon/Desktop/Server/Views/UserPages/EditCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEVkaXRDdXN0b21lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Valon/Desktop/Server/Views/UserPages/SettingsPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXFNldHRpbmdzUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Valon/Desktop/Server/Views/UserPages/UserDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXFVzZXJEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

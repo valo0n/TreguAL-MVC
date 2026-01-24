@@ -1,0 +1,70 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+    
+    <div class="flex-1 p-4 md:p-0 flex flex-col">
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+                 <select id="rangeSelect" class="bg-white rounded-lg shadow p-2 w-full mt-4 md:ml-13 md:mt-4 cursor-pointer">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="yearly">Monthly</option>
+                </select>
+            </div>
+           
+            <div class="bg-white rounded-lg shadow p-2 w-full sm:w-auto md:mr-15 md:mt-5">
+                <h3 class="text-xs text-gray-500">Total Sales (<span id="rangeLabel">daily</span>)</h3>
+                <p id="totalSales" class="text-lg font-bold text-[#112D4E]">€0</p>
+            </div>
+        </div>
+
+        <div id="mainChartLoader" class="w-full h-48 bg-white rounded-lg shadow p-3 flex items-center justify-center mb-3 hidden">
+            <div class="animate-pulse flex flex-col items-center">
+                <div class="h-8 w-8 bg-[#112D4E] rounded-full animate-spin mb-2"></div>
+                <p class="text-gray-500 text-sm">Loading chart data...</p>
+            </div>
+        </div>
+
+        <div id="mainChartContainer" class="w-full bg-white rounded-lg shadow p-3 mb-3">
+            <h2 id="chartTitle" class="text-base font-semibold mb-2 text-[#112D4E]">
+                Sales Data
+            </h2>
+            
+            <div id="mainChartNoData" class="h-48 flex items-center justify-center text-gray-500 text-sm hidden">
+                No sales data available for this period
+            </div>
+
+            <div id="mainChartCanvasWrapper" class="h-48 w-full">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+
+        <div class="mt-3 text-xs">
+             <div id="yearChartLoader" class="w-full h-48 bg-white rounded-lg shadow p-3 flex items-center justify-center mb-3 hidden">
+                <div class="animate-pulse flex flex-col items-center">
+                    <div class="h-8 w-8 bg-[#112D4E] rounded-full animate-spin mb-2"></div>
+                    <p class="text-gray-500 text-sm">Loading yearly comparison data...</p>
+                </div>
+            </div>
+
+             <div id="yearChartNoData" class="w-full h-32 bg-white rounded-lg shadow p-3 flex items-center justify-center mb-3 hidden">
+                 <p class="text-gray-500 text-sm">No yearly sales data available</p>
+            </div>
+
+            <div id="yearChartContainer" class="w-full bg-white rounded-lg shadow p-3 mb-3">
+                <h3 class="text-base font-semibold mb-2 text-[#112D4E]">Total Sales by Year</h3>
+                <div class="h-48">
+                    <canvas id="yearChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/js/components/user-dashboard.js"></script>
