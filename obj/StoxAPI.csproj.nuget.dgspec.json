@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Valon\\Desktop\\Server--\\StoxAPI.csproj": {}
+    "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Valon\\Desktop\\Server--\\StoxAPI.csproj": {
+    "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valon\\Desktop\\Server--\\StoxAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj",
         "projectName": "StoxAPI",
-        "projectPath": "C:\\Users\\Valon\\Desktop\\Server--\\StoxAPI.csproj",
+        "projectPath": "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj",
         "packagesPath": "C:\\Users\\Valon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valon\\Desktop\\Server--\\obj\\",
+        "outputPath": "C:\\Users\\Valon\\Desktop\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
