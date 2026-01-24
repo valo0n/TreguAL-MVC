@@ -1,0 +1,95 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="flex flex-col min-h-screen md:flex-row">
+
+    @await Html.PartialAsync("~/Views/Partials/_SidebarUser.cshtml")
+
+    <div class="flex-1 p-4 md:p-0 flex flex-col">
+
+        @await Html.PartialAsync("~/Views/Partials/_Header.cshtml")
+
+        <!-- Search & Sort -->
+        <div class="flex flex-col mt-4 md:flex-row md:items-center md:justify-between mb-6
+                    space-y-4 md:space-y-0 md:ml-10 md:mr-10 lg:ml-15 lg:mr-15 lg:mt-5">
+
+            <input id="searchInput"
+                   type="text"
+                   placeholder="Search customers"
+                   class="border px-4 py-2 rounded-md w-full md:w-40" />
+
+            <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 items-center w-full md:w-auto">
+                <select id="sortSelect"
+                        class="border px-4 py-2 rounded-md w-full md:w-auto">
+                    <option value="full_Name-asc">Name (A-Z)</option>
+                    <option value="full_Name-desc">Name (Z-A)</option>
+                    <option value="email-asc">Email (A-Z)</option>
+                    <option value="email-desc">Email (Z-A)</option>
+                    <option value="address-asc">Address (A-Z)</option>
+                    <option value="address-desc">Address (Z-A)</option>
+                    <option value="customer_ID-asc">ID (Ascending)</option>
+                    <option value="customer_ID-desc">ID (Descending)</option>
+                </select>
+
+                <a href="/UserPages/AddCustomer"
+                   class="bg-[#112D4E] text-white px-6 py-2 rounded-md hover:bg-[#0b213f] w-full md:w-auto text-center">
+                    Add Customer
+                </a>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto flex-grow md:ml-15 md:mr-15">
+            <table class="min-w-full border-collapse border border-gray-300">
+                <thead class="bg-[#112D4E] text-white">
+                    <tr>
+                        <th class="p-3">ID</th>
+                        <th class="p-3">Full Name</th>
+                        <th class="p-3">Email</th>
+                        <th class="p-3">Phone Number</th>
+                        <th class="p-3">Address</th>
+                        <th class="p-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="customerTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center space-x-4 mt-6">
+            <button id="prevBtn" class="px-3 py-2 rounded">Previous</button>
+            <p class="text-sm" id="pageInfo"></p>
+            <button id="nextBtn" class="px-3 py-2 rounded">Next</button>
+        </div>
+
+        <!-- Total -->
+        <div class="bg-[#112D4E] text-white p-2 rounded-md flex justify-center
+                    text-lg font-semibold mt-8 md:ml-10 md:mr-10 md:mb-8">
+            <p id="totalCustomers"></p>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE MODAL -->
+<div id="deleteModal"
+     class="fixed inset-0 flex items-center justify-center z-50 hidden md:ml-65">
+    <div class="bg-white p-6 rounded-lg text-center space-y-4 w-96 shadow-lg border border-[#112D4E]">
+        <div class="text-red-600 text-4xl">!</div>
+        <h2 class="text-xl font-semibold">
+            Are you sure you want to delete this customer?
+        </h2>
+        <div class="flex justify-center space-x-4 mt-4">
+            <button onclick="confirmDelete()"
+                    class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">
+                Yes, delete
+            </button>
+            <button onclick="closeDeleteModal()"
+                    class="border border-gray-400 px-6 py-2 rounded hover:bg-gray-100">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/components/customer.js"></script>
