@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoxAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e10e904337a7bab395d85ff800dab5a11fe32741")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d644d2a7fc35096acc5d5aa487b766ff0cc96afb")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoxAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoxAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
