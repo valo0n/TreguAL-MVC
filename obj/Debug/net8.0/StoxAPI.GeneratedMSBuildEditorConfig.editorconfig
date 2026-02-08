@@ -11,133 +11,137 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StoxAPI
 build_property.RootNamespace = StoxAPI
-build_property.ProjectDir = C:\Users\Valon\Desktop\TreguAL-MVC\
+build_property.ProjectDir = C:\Users\Ensar\Desktop\TreguAL-MVC\TreguAL-MVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Valon\Desktop\TreguAL-MVC
+build_property.MSBuildProjectDirectory = C:\Users\Ensar\Desktop\TreguAL-MVC\TreguAL-MVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AdminPages/Dashboard.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AdminPages/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AdminPages/See_Messages.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AdminPages/See_Messages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xTZWVfTWVzc2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AdminPages/See_Users.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AdminPages/See_Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlc1xTZWVfVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AuthPages/ForgotLink.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/ForgotLink.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXEZvcmdvdExpbmsuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AuthPages/Login.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AuthPages/ResetPassword.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXFJlc2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AuthPages/SignUpForm.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/SignUpForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXFNpZ25VcEZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/AuthPages/StepTwo.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/AuthPages/StepTwo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFBhZ2VzXFN0ZXBUd28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Partials/_Header.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0hlYWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Partials/_LogoutModal.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_LogoutModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0xvZ291dE1vZGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Partials/_SettingsComponent.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_SettingsComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX1NldHRpbmdzQ29tcG9uZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Partials/_SidebarAdmin.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_SidebarAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX1NpZGViYXJBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Partials/_UserActivityPanel.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_SidebarUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX1NpZGViYXJVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Partials/_UserActivityPanel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX1VzZXJBY3Rpdml0eVBhbmVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/PublicPages/Contact.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/PublicPages/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGljUGFnZXNcQ29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/PublicPages/Landingpage.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/PublicPages/Landingpage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGljUGFnZXNcTGFuZGluZ3BhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/Shared/_Layout.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/AddProduct.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xBZGRQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/AddPurchase.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/AddPurchase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xBZGRQdXJjaGFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/AddSale.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/AddSale.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xBZGRTYWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/EditProduct.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/EditProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xFZGl0UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/Income.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/Income.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xJbmNvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/Product.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/Purchase.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/Purchase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xQdXJjaGFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/StockPages/Sale.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/StockPages/Sale.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQYWdlc1xTYWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/AddCustomer.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/AddCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEFkZEN1c3RvbWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/ContactDashboard.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/ContactDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXENvbnRhY3REYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/Customer.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/Customer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEN1c3RvbWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/EditCustomer.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/EditCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXEVkaXRDdXN0b21lci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/SettingsPage.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/SettingsPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXFNldHRpbmdzUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Valon/Desktop/TreguAL-MVC/Views/UserPages/UserDashboard.cshtml]
+[C:/Users/Ensar/Desktop/TreguAL-MVC/TreguAL-MVC/Views/UserPages/UserDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VzXFVzZXJEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
