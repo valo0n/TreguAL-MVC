@@ -1,118 +1,156 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Server.Data;
 using Server.Models;
-using System.Threading.Tasks;
-using MimeKit;
-using MailKit.Net.Smtp;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 
 namespace Server.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _config;
+        private readonly ILogger<ContactController> _logger;
 
-        public ContactController(AppDbContext context, IConfiguration config)
+        public ContactController(
+            AppDbContext context,
+            IConfiguration config,
+            ILogger<ContactController> logger)
         {
             _context = context;
             _config = config;
+            _logger = logger;
         }
 
+        // ============================
+        // POST: api/contact
+        // ============================
         [HttpPost]
-        public async Task<IActionResult> SubmitContact([FromBody] ContactRequest request)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Submit([FromBody] ContactRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Message))
-                return BadRequest("Email and message are required.");
+            // 1️⃣ Safety: request null
+            if (request == null)
+                return BadRequest("Request body is missing.");
 
-            var contact = new Contact
+            // 2️⃣ Model validation (DataAnnotations)
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
+
+            try
             {
-                Email = request.Email,
-                Message = request.Message,
-                Date = DateTime.Now
-            };
+                // 3️⃣ Persist to database
+                var contact = new Contact
+                {
+                    Email = request.Email.Trim(),
+                    Message = request.Message.Trim(),
+                    Date = DateTime.UtcNow
+                };
 
-            _context.Contact.Add(contact);
-            await _context.SaveChangesAsync();
+                await _context.Contact.AddAsync(contact);
+                await _context.SaveChangesAsync();
 
-            var result = await SendEmailAsync(request.Email, request.Message);
-            if (!result)
-                return StatusCode(500, "Message saved, but failed to send email.");
+                // 4️⃣ Send notification email
+                var emailSent = await SendEmailAsync(contact.Email, contact.Message);
 
-            return Ok("Message submitted and email sent successfully.");
+                if (!emailSent)
+                {
+                    _logger.LogWarning("Contact saved but email sending failed for {Email}", contact.Email);
+                    return StatusCode(
+                        StatusCodes.Status500InternalServerError,
+                        new { message = "Message saved, but email failed to send." }
+                    );
+                }
+
+                return Ok(new { message = "Message submitted successfully." });
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Database error while saving contact message.");
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    new { message = "Database error occurred." }
+                );
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in ContactController.");
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    new { message = "Unexpected server error." }
+                );
+            }
         }
 
+        // ============================
+        // EMAIL SENDER
+        // ============================
         private async Task<bool> SendEmailAsync(string userEmail, string message)
         {
             try
             {
-                var email = new MimeMessage();
-                email.From.Add(new MailboxAddress("STOX Contact Form", _config["EmailSettings:SenderEmail"]));
-                email.To.Add(new MailboxAddress("STOX Admin", "valonnura889@gmail.com"));
-                email.Cc.Add(new MailboxAddress("", ""));
-                email.Cc.Add(new MailboxAddress("", ""));
-                email.Subject = $"New Contact Message from {userEmail}";
+                var smtpServer = _config["EmailSettings:SmtpServer"];
+                var senderEmail = _config["EmailSettings:SenderEmail"];
+                var senderPassword = _config["EmailSettings:SenderPassword"];
+                var adminEmail = _config["EmailSettings:AdminEmail"];
 
-                string senderIp = HttpContext?.Connection?.RemoteIpAddress?.ToString() ?? "Unknown";
+                if (string.IsNullOrWhiteSpace(smtpServer) ||
+                    string.IsNullOrWhiteSpace(senderEmail) ||
+                    string.IsNullOrWhiteSpace(senderPassword) ||
+                    string.IsNullOrWhiteSpace(adminEmail))
+                {
+                    _logger.LogError("EmailSettings are not properly configured.");
+                    return false;
+                }
+
+                var email = new MimeMessage();
+                email.From.Add(new MailboxAddress("STOX Contact Form", senderEmail));
+                email.To.Add(MailboxAddress.Parse(adminEmail));
+                email.Subject = $"📩 New Contact Message from {userEmail}";
+
+                var senderIp = HttpContext?.Connection?.RemoteIpAddress?.ToString() ?? "Unknown";
 
                 var bodyBuilder = new BodyBuilder
                 {
                     HtmlBody = $@"
-              <div style='font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 8px; background-color: #ffffff;'>
-                <div style='text-align: center; margin-bottom: 20px;'>
-                    <img src='https://i.imgur.com/hIUt2pQ.png' alt='STOX Logo' style='max-height: 60px;' />
-                </div>
-
-                <h2 style='color: #112D4E; border-bottom: 2px solid #3ABEF9; padding-bottom: 10px;'>📩 New Contact Message</h2>
-
-                <p style='margin: 20px 0; font-size: 15px;'>
-                  <strong>Sender:</strong> 
-                  <a href='mailto:{userEmail}' style='color: #3ABEF9; text-decoration: none;'>{userEmail}</a>
-                </p>
-
-                <p style='font-size: 15px;'><strong>Message:</strong></p>
-                <div style='background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3ABEF9; border-radius: 5px; font-size: 14px; line-height: 1.5;'>
-                  {System.Net.WebUtility.HtmlEncode(message).Replace("\n", "<br/>")}
-                </div>
-
-                <div style='margin: 25px 0; text-align: center;'>
-                  <a href='mailto:{userEmail}' style='background-color: #3ABEF9; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;'>
-                    📧 Reply to {userEmail}
-                  </a>
-                </div>
-
-                <hr style='margin: 30px 0; border: none; border-top: 1px solid #ddd;' />
-
-                <p style='font-size: 12px; color: #777;'>
-                  📅 Submitted on <strong>{DateTime.Now:MMMM dd, yyyy HH:mm}</strong><br/>
-                  🌐 Sender IP: <strong>{senderIp}</strong>
-                </p>
-
-                <p style='font-size: 12px; color: #999; text-align: center; margin-top: 30px;'>
-                  This message was sent via the <strong>STOX Contact Form</strong>.
-                </p>
-              </div>"
+<div style='font-family:Arial,sans-serif;max-width:600px;margin:auto'>
+  <h2>New Contact Message</h2>
+  <p><strong>From:</strong> {WebUtility.HtmlEncode(userEmail)}</p>
+  <p><strong>Message:</strong></p>
+  <div style='padding:10px;background:#f4f4f4;border-left:4px solid #3ABEF9'>
+    {WebUtility.HtmlEncode(message).Replace("\n", "<br/>")}
+  </div>
+  <hr/>
+  <p style='font-size:12px;color:#777'>
+    Submitted: {DateTime.UtcNow:yyyy-MM-dd HH:mm} UTC<br/>
+    IP: {senderIp}
+  </p>
+</div>"
                 };
 
                 email.Body = bodyBuilder.ToMessageBody();
 
                 using var smtp = new SmtpClient();
 
-                try
-                {
-                    // Try STARTTLS on port 587
-                    await smtp.ConnectAsync(_config["EmailSettings:SmtpServer"], 587, MailKit.Security.SecureSocketOptions.StartTls);
-                }
-                catch
-                {
-                    // If failed, try SSL on port 465
-                    await smtp.ConnectAsync(_config["EmailSettings:SmtpServer"], 465, MailKit.Security.SecureSocketOptions.SslOnConnect);
-                }
+                await smtp.ConnectAsync(
+                    smtpServer,
+                    587,
+                    SecureSocketOptions.StartTls
+                );
 
-                await smtp.AuthenticateAsync(_config["EmailSettings:SenderEmail"], _config["EmailSettings:SenderPassword"]);
+                await smtp.AuthenticateAsync(senderEmail, senderPassword);
                 await smtp.SendAsync(email);
                 await smtp.DisconnectAsync(true);
 
@@ -120,14 +158,23 @@ namespace Server.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Email send failed (MailKit): " + ex.Message);
+                _logger.LogError(ex, "Failed to send contact email.");
                 return false;
             }
         }
 
+        // ============================
+        // REQUEST MODEL
+        // ============================
         public class ContactRequest
         {
+            [Required]
+            [EmailAddress]
             public string Email { get; set; }
+
+            [Required]
+            [MinLength(5)]
+            [MaxLength(2000)]
             public string Message { get; set; }
         }
     }
