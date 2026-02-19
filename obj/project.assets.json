@@ -2075,23 +2075,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Valon\\.nuget\\packages\\": {},
+    "C:\\Users\\Ensar\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Ensar\\Desktop\\TreguAL-MVC\\TreguAL-MVC\\StoxAPI.csproj",
       "projectName": "StoxAPI",
-      "projectPath": "C:\\Users\\Valon\\Desktop\\Server\\StoxAPI.csproj",
-      "packagesPath": "C:\\Users\\Valon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Valon\\Desktop\\Server\\obj\\",
+      "projectPath": "C:\\Users\\Ensar\\Desktop\\TreguAL-MVC\\TreguAL-MVC\\StoxAPI.csproj",
+      "packagesPath": "C:\\Users\\Ensar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ensar\\Desktop\\TreguAL-MVC\\TreguAL-MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Valon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ensar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2100,7 +2100,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2177,7 +2176,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

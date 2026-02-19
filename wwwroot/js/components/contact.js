@@ -1,40 +1,86 @@
-function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("hidden");
-}
+document.addEventListener("DOMContentLoaded", () => {
+    localStorage.removeItem("token"); // Sigurohuni që tokeni të fshihet në load (security best practice)
+    // =========================
+    // AUTH UI HANDLING
+    // =========================
+    const signUpBtn = document.getElementById("signUpBtn");
+    const loginBtn = document.getElementById("loginBtn");
 
-document.getElementById("contactForm")
-    .addEventListener("submit", async function (e) {
+    const token = localStorage.getItem("token");
+
+    // Mos e fshij token automatikisht (security + UX best practice)
+    if (!token) {
+        if (signUpBtn) signUpBtn.style.display = "none";
+        if (loginBtn) loginBtn.style.display = "none";
+    }
+
+    // =========================
+    // CONTACT FORM HANDLING
+    // =========================
+    const form = document.getElementById("contactForm");
+    if (!form) return;
+
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const btn = document.getElementById("submitBtn");
-        btn.disabled = true;
-        btn.textContent = "Sending...";
+        if (!submitBtn) return;
 
-        const form = e.target;
+        // UX feedback
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
         const payload = {
-            email: form.email.value.trim(),
-            message: form.message.value.trim()
+            email: form.email?.value.trim(),
+            message: form.message?.value.trim()
         };
 
+        // Client-side validation (fast-fail)
+        if (!payload.email || !payload.message) {
+            alert("Please fill in all required fields.");
+            resetButton();
+            return;
+        }
+
         try {
-            const res = await fetch("http://localhost:5104/api/contact", {
+            const response = await fetch("/api/contact", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify(payload)
             });
 
-            if (!res.ok) {
-                const err = await res.text();
-                alert("Failed to submit: " + err);
-            } else {
-                alert("Message submitted successfully!");
-                form.reset();
-            }
-        } catch (err) {
-            console.error("Error submitting message:", err);
-            alert("An error occurred. Please try again.");
-        }
+            const data = await response.json().catch(() => null);
 
-        btn.disabled = false;
-        btn.textContent = "Submit";
+            if (!response.ok) {
+                alert(data?.message || "Failed to submit message.");
+                return;
+            }
+
+            alert("Message submitted successfully!");
+            form.reset();
+        } catch (error) {
+            console.error("Contact form error:", error);
+            alert("Server error. Please try again later.");
+        } finally {
+            resetButton();
+        }
     });
+
+    function resetButton() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit";
+    }
+});
+
+// =========================
+// MOBILE MENU
+// =========================
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    if (menu) {
+        menu.classList.toggle("hidden");
+    }
+}
